@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duffel — Case Study</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/case-study.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-back" href="../index.html" aria-label="Back to home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <button class="header-email" id="copyEmail" type="button" aria-label="Copy email address">
+      <span class="header-email__text">hi@samirrf.com</span>
+      <svg class="header-email__icon header-email__icon--copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <svg class="header-email__icon header-email__icon--check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle class="header-email__circle" cx="12" cy="12" r="10" stroke="#2b8a3e"/><polyline points="8 12 11 15 16 9" stroke="#2b8a3e"/></svg>
+      <span class="header-email__toast">Copied!</span>
+    </button>
+    <div class="header-right">
+      <span class="header-location">
+        <span class="header-location__city">LDN</span>
+        <span class="header-location__time" id="headerTime"></span>
+      </span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <span class="theme-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="cs-page">
+
+    <!-- 1. Header -->
+    <div class="cs-section cs-narrow reveal">
+      <div class="cs-header">
+        <img class="cs-header__logo" src="../assets/img/Duffel Logo - Dark 1.svg" alt="Duffel">
+        <p class="cs-header__eyebrow">2023 &mdash; Present</p>
+        <h1 class="cs-header__title">Building the foundation for AI-powered<br class="cs-br-desktop"> travel support</h1>
+        <p class="cs-header__subtitle">YC-backed travel startup powering products for Ramp, Robinhood and Bilt.<br class="cs-br-desktop"> Sole product designer &mdash; from consumer booking to AI-powered support and agent tooling.</p>
+        <ul class="cs-header__tags">
+          <li class="cs-tag">B2B</li>
+          <li class="cs-tag">Travel</li>
+          <li class="cs-tag">Web</li>
+          <li class="cs-tag">Mobile</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- 3. The Problem -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The problem</p>
+        <h2 class="cs-h2">Support existed, but it hadn't been designed as a product</h2>
+        <div class="cs-body">
+          <p>Duffel sells travel infrastructure to companies that aren't travel companies &mdash; spend management platforms like Ramp and Rippling, neobanks like Robinhood and Bilt. These companies have millions of users who want to book travel, but they don't want to become travel agents themselves. Duffel provides the supply, the licensing, the infrastructure, and the operations that come with it.</p>
+          <p>The thing that matters about travel is that it's messy. Flights get cancelled, people miss connections, airlines make schedule changes, and when any of that happens someone knowledgeable needs to be on hand who can actually resolve it. That's what servicing means &mdash; and before I joined, it was something Duffel offered but hadn't designed. There were a few travel agents on staff who handled requests by email and live chat through Zendesk, and they used an internal admin tool that engineers had built for themselves. It worked, but none of it had been thought through as a product.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-callout">
+          <p>The bigger customers Duffel needed to grow weren't signing because the support experience wasn't good enough. They had millions of travellers who'd need help with changes, cancellations, and disruptions &mdash; and Duffel couldn't credibly promise to handle that at scale. Travel support wasn't just a product gap, it was a commercial one.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-body">
+          <p>I spent time with the support team &mdash; moved desks, sat in their area, watched how they actually worked. What I found was a structural problem rather than a tooling one. When a traveller needed to change a flight, the request would pass through multiple people and multiple systems before anything got resolved. Agents were working across three different tools &mdash; Zendesk for communication, an internal dev tool for order data, and the Dashboard for other booking information &mdash; and one request could touch all three, with the agent keeping the same information consistent by hand across each one.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="cs-pull-quote">
+          <p>It took up to twenty minutes to change a single flight. There is no other modern support experience that takes twenty minutes.</p>
+        </blockquote>
+      </div>
+      <div class="cs-full cs-wide-iframe reveal">
+        <iframe class="cs-iframe--blueprint" src="../assets/embeds/Flight Change Service Blueprint (standalone) (1).html" title="Service blueprint" allowtransparency="true"></iframe>
+      </div>
+    </section>
+
+    <!-- 4. The Strategic Bet -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The strategic bet</p>
+        <h2 class="cs-h2">Move agents out of a dev tool and into the product we sell</h2>
+        <div class="cs-body">
+          <p>There were two paths. We could redesign the internal admin tool &mdash; make it better for agents and keep support as a back-office function. Or we could move agents out of that tool entirely and into the Dashboard, which is the product Duffel actually sells to its customers.</p>
+          <p>I argued for the second one. The reasoning was that we sell the Dashboard to our customers so they can manage their travellers' bookings, and our own agents are doing the same job with more expertise. Both need to look at orders, take actions, see timelines, manage requests. Rather than maintaining two separate tools for essentially the same work, building one good product means our agents get something designed for their workflow, we stress-test our own product with the most demanding users we have, and we're building toward something that Duffel can eventually position as a dedicated travel operations tool in its own right.</p>
+          <p>That created an interesting design constraint &mdash; one product serving two different types of agent. Merchant agents work in a consumer-friendly context where airports are written out in full and the interface is forgiving. Duffel's expert agents need information density, IATA codes, and speed. One tool, two modes of working in it.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="cs-pull-quote">
+          <p>Two agent archetypes, one tool. The merchant agent: the work finds you. The Duffel agent: you find the work.</p>
+        </blockquote>
+      </div>
+      <div class="cs-wide-iframe reveal">
+        <iframe class="cs-iframe--diagram" src="../assets/embeds/Duffel System Diagram.html" title="System diagram — two products, two workflows"></iframe>
+      </div>
+      <div class="cs-wide reveal">
+        <div class="cs-progression">
+          <div class="cs-progression__item">
+            <img src="" alt="Dashboard v1">
+            <p class="cs-progression__label">Dashboard v1</p>
+          </div>
+          <span class="cs-progression__arrow">&rarr;</span>
+          <div class="cs-progression__item">
+            <img src="" alt="Customer User Page">
+            <p class="cs-progression__label">Customer User Page</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What Shipped — CUP -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">What shipped</p>
+        <h2 class="cs-h2">Travellers don't have bookings. They have trips.</h2>
+        <div class="cs-body">
+          <p>The Dashboard was still organised around individual bookings &mdash; one flight, one order, one view. But travellers don't think in bookings. A trip to Sydney is a flight, a hotel, maybe a car rental. Three separate bookings, one trip, one person. When something changes with the flight, the hotel might need to change too, and if the agent can only see one booking at a time they're missing the full picture.</p>
+          <p>The Customer User Page reorganised the agent's view around the traveller rather than the booking. One page per person, showing their full trip across all bookings, all requests, and all their history with us. When an agent opens a support conversation, they can see everything about that traveller in one place &mdash; which bookings they have, what they've asked for, and what's already been done. It's the foundation that everything else gets built on, and it's live &mdash; this is what our ops team works in every day.</p>
+        </div>
+      </div>
+      <div class="cs-wide-image reveal">
+        <img src="../assets/img/CUP - Final.png" alt="Customer User Page — full screenshot">
+      </div>
+      <div class="cs-wide reveal">
+        <div class="cs-stats">
+          <div class="cs-stat">
+            <p class="cs-stat__number">3 &rarr; 1</p>
+            <p class="cs-stat__label">Agent tools consolidated into a single workspace</p>
+          </div>
+          <div class="cs-stat">
+            <p class="cs-stat__number">~11.5k</p>
+            <p class="cs-stat__label">Monthly support conversations handled</p>
+          </div>
+          <div class="cs-stat">
+            <p class="cs-stat__number">+80%</p>
+            <p class="cs-stat__label">Volume growth over 4 months &mdash; resolution times held</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. The Vision -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The vision</p>
+        <h2 class="cs-h2">One input. The system figures out the rest.</h2>
+        <div class="cs-body">
+          <p>The scenario that became the spine of the project was simple: &ldquo;I need to fly a week later.&rdquo; One sentence, natural language. The system figures out what needs to change &mdash; the flight, the hotel, maybe a transfer &mdash; checks availability, reprices, and handles the rebooking. The traveller gets a result, not a process to manage.</p>
+          <p>This vision set the bar for every decision that followed. Whenever we were evaluating a feature or an approach, the question was always whether it got us closer to that done-for-me experience or whether it was just adding another feature onto a chat tool. The answer was honest &mdash; we weren't close to the full vision yet, the operational stack was too fragmented and the tooling too manual. But the vision made clear what we were building toward, and it reframed support from something we had to do into something that could genuinely differentiate the product.</p>
+        </div>
+      </div>
+      <div class="cs-full reveal">
+        <video class="cs-video" src="../assets/video/traveller-north-star.mp4" muted loop playsinline></video>
+      </div>
+    </section>
+
+    <!-- 7. Where It's Going — AI -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">Where it's going</p>
+        <h2 class="cs-h2">The agent supervises. The agent doesn't disappear.</h2>
+        <div class="cs-body">
+          <p>All the structural work &mdash; mapping the service blueprint, moving agents into one tool, reorganising around the traveller &mdash; created the conditions for AI to actually land in a meaningful way. This isn't AI bolted onto a broken process; it's AI operating within a system that was already organised around trips, travellers, and structured workflows.</p>
+          <p>We chose a supervised model deliberately. A lot of AI support tools go fully autonomous and fail silently, and travel has too many edge cases and too much money on the line for that. The approach is that AI handles the routine &mdash; surfacing suggestions, drafting responses, running through defined procedures &mdash; and a human agent reviews and approves before anything executes. Where the AI can resolve something end-to-end via API, it does. Where it can't, it escalates to the agent with full context rather than leaving the traveller waiting.</p>
+        </div>
+      </div>
+      <div class="cs-wide reveal">
+        <div class="cs-two-col">
+          <div class="cs-two-col__item">
+            <span class="cs-badge cs-badge--live">Live</span>
+            <p class="cs-two-col__text">The Customer User Page &mdash; the traveller-centric agent workspace. Chat, bookings, requests, timeline all in one place. The foundation everything else is built on.</p>
+          </div>
+          <div class="cs-two-col__item">
+            <span class="cs-badge cs-badge--wip">Being built and tested</span>
+            <p class="cs-two-col__text">AI-assisted support: intent detection, suggested replies, procedures as the unit of work. &ldquo;Cancel flight&rdquo; as a sequence of steps the AI can run, with the agent supervising.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cs-full cs-wide-iframe reveal">
+        <iframe src="../assets/embeds/Agent North Star AI Flow (Standalone).html" title="AI-assisted support flow"></iframe>
+      </div>
+    </section>
+
+    <!-- 8. Reflection -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">Reflection</p>
+        <h2 class="cs-h2">Three years as the sole designer on a systems problem</h2>
+        <div class="cs-body">
+          <p>We initially thought we'd build self-service change flows and let travellers handle things themselves. We realised fairly quickly that we needed agents, and that the tooling for those agents was the real problem to solve. Then AI started becoming real, and we realised there was a chance to do something more powerful here &mdash; not just better tools for agents, but a system where AI handles the routine and agents supervise and handle the complex cases.</p>
+          <p>The platform has since expanded from flights to stays, cars, and trains &mdash; and the architecture has scaled with it. Zendesk is still in the stack for email. The airline source tools are decades old and outside our control. Not everything has shipped, and not everything will. But travel support went from something Duffel struggled to offer to one of the core things it sells &mdash; &ldquo;we'll handle your travellers' support&rdquo; is now a key part of the commercial proposition. The trajectory is clear, and the systems thinking that connected a broken operational stack to an AI-ready product architecture is the kind of work I want to keep doing.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__built-with">
+      Built with <img class="site-footer__claude-icon" src="../assets/img/claude-code-icon.svg" alt="Claude Code" width="18" height="18">
+    </span>
+    <span class="site-footer__commit">Last commit: <span id="commitAgo"></span></span>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'color-scheme';
+      const root = document.documentElement;
+
+      function applyScheme(scheme) {
+        root.dataset.colorScheme = scheme;
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) applyScheme(stored);
+
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener('change', function (e) {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          applyScheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      function init() {
+        // Theme toggle
+        var themeBtn = document.getElementById('themeToggle');
+        themeBtn.addEventListener('click', function () {
+          var current = root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+          var next = current === 'dark' ? 'light' : 'dark';
+          applyScheme(next);
+          localStorage.setItem(STORAGE_KEY, next);
+          setTimeout(syncIframeThemes, 50);
+        });
+
+        // London time with blinking colon
+        function updateTime() {
+          var now = new Date();
+          var parts = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London', hour12: false }).split(':');
+          document.getElementById('headerTime').innerHTML = parts[0] + '<span class="header-location__colon">:</span>' + parts[1];
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // Last commit ticker
+        var LAST_COMMIT = 1781864218000;
+        function updateCommitAgo() {
+          var diff = Math.floor((Date.now() - LAST_COMMIT) / 1000);
+          var text;
+          if (diff < 60) text = diff + 's ago';
+          else if (diff < 3600) text = Math.floor(diff / 60) + 'm ago';
+          else if (diff < 86400) text = Math.floor(diff / 3600) + 'h ago';
+          else text = Math.floor(diff / 86400) + 'd ago';
+          document.getElementById('commitAgo').textContent = text;
+        }
+        updateCommitAgo();
+        setInterval(updateCommitAgo, 1000);
+
+        // Copy email
+        document.getElementById('copyEmail').addEventListener('click', function () {
+          var el = this;
+          navigator.clipboard.writeText('hi@samirrf.com').then(function () {
+            el.classList.add('is-copied');
+            setTimeout(function () { el.classList.remove('is-copied'); }, 1500);
+          });
+        });
+
+        // Sync iframe themes with parent
+        function getTheme() {
+          return root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+        }
+        function syncIframeThemes() {
+          var theme = getTheme();
+          var iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function (f) {
+            if (f.contentWindow) f.contentWindow.postMessage({ theme: theme }, '*');
+          });
+        }
+        window.addEventListener('load', function () {
+          setTimeout(syncIframeThemes, 500);
+        });
+
+        // Play video on scroll
+        var videos = document.querySelectorAll('.cs-video');
+        var videoObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.play();
+            } else {
+              entry.target.pause();
+            }
+          });
+        }, { threshold: 0.25 });
+        videos.forEach(function (v) { videoObserver.observe(v); });
+
+        // Scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '-40px' });
+
+        var heroCount = 0;
+        reveals.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            var d = 0.15 + heroCount * 0.15;
+            el.style.transitionDelay = d + 's';
+            heroCount++;
+            requestAnimationFrame(function () {
+              el.classList.add('is-visible');
+            });
+          } else {
+            el.style.transitionDelay = '0.15s';
+            observer.observe(el);
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
+</body>
+</html>

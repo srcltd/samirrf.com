@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samir</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="header-email" id="copyEmail" type="button" aria-label="Copy email address">
+      <span class="header-email__text">hi@samirrf.com</span>
+      <svg class="header-email__icon header-email__icon--copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <svg class="header-email__icon header-email__icon--check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle class="header-email__circle" cx="12" cy="12" r="10" stroke="#2b8a3e"/><polyline points="8 12 11 15 16 9" stroke="#2b8a3e"/></svg>
+      <span class="header-email__toast">Copied!</span>
+    </button>
+    <div class="header-right">
+      <span class="header-location">
+        <span class="header-location__city">LDN</span>
+        <span class="header-location__time" id="headerTime"></span>
+      </span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <span class="theme-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- 1. Hero -->
+    <section class="hero">
+      <div class="hero__names reveal">
+        <span class="hero__name-en" id="samirHover">
+          <span class="hero__name-text">SAMIR</span>
+          <img class="hero__peek" id="peekImg" src="assets/img/image 6.png" alt="Samir">
+        </span>
+        <span class="hero__name-ar" lang="ar">سمير</span>
+      </div>
+      <p class="hero__title reveal">
+        <em class="hero__title-default">Staff Product Designer</em>
+        <em class="hero__title-hover">Gooner</em>
+      </p>
+    </section>
+
+    <!-- 2. Duffel -->
+    <section class="project" id="duffel">
+      <div class="project__header reveal">
+        <div class="project__identity">
+          <img class="project__logo" src="assets/img/Duffel Logo - Dark 1.svg" alt="Duffel">
+        </div>
+        <span class="project__dates">2023 – 2026</span>
+      </div>
+      <div class="project__meta reveal">
+        <div class="project__meta-left">
+          <p class="project__description">YC-backed travel startup powering products for Ramp, Robinhood and Bilt. I lead the design function, from consumer booking to AI-powered support and agent tooling.</p>
+          <a class="project__link" href="pages/duffel.html">View case study</a>
+        </div>
+        <div class="project__meta-right">
+          <ul class="project__tags">
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>B2B</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Travel</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Web</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Mobile</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project__screenshots">
+        <a class="bento-link reveal" href="pages/duffel.html">
+          <div class="bento bento--hero-row">
+            <img class="bento__desktop" src="assets/img/CUP1.png" alt="Duffel desktop — agent support UI">
+            <img class="bento__phone" src="assets/img/Assistant 2.png" alt="Duffel mobile — AI trip management">
+          </div>
+          <span class="bento-link__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+        <a class="bento-link reveal" href="pages/duffel.html">
+          <div class="bento-pair">
+            <div class="bento bento--phones">
+              <img src="assets/img/Home 2x.png" alt="Duffel mobile — home screen">
+              <img src="assets/img/Duffel - Search 2x.png" alt="Duffel mobile — flight search results">
+              <img src="assets/img/Duffel - Return 2x.png" alt="Duffel mobile — return flight details">
+            </div>
+            <div class="bento bento--cards">
+              <img src="assets/img/Offer Card.png" alt="Duffel — offer card compact">
+              <img src="assets/img/Offer Card Expanded.png" alt="Duffel — offer card expanded">
+            </div>
+          </div>
+          <span class="bento-link__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. Ferriswheel -->
+    <section class="project" id="ferriswheel">
+      <div class="project__header reveal">
+        <div class="project__identity">
+          <img class="project__logo" src="assets/img/Ferriswheel_RGB_Wordmark_Black 1.svg" alt="Ferriswheel">
+        </div>
+        <span class="project__dates">2021 – 2023</span>
+      </div>
+      <div class="project__meta reveal">
+        <div class="project__meta-left">
+          <p class="project__description">Fintech startup building a trading platform and NFT marketplace. Led end-to-end design across web and mobile, including a major rebrand with Koto.</p>
+          <a class="project__link" href="pages/ferriswheel.html">View case study</a>
+        </div>
+        <div class="project__meta-right">
+          <ul class="project__tags">
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>B2B</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Fintech</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Web</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Mobile</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project__screenshots">
+        <a class="bento-link reveal" href="pages/ferriswheel.html">
+          <div class="bento bento--hero-row">
+            <img class="bento__desktop" src="assets/img/Ferriswheel Web.png" alt="Ferriswheel desktop — NFT marketplace">
+            <img class="bento__phone" src="assets/img/Ferriswheel Mobile.png" alt="Ferriswheel mobile — portfolio">
+          </div>
+          <span class="bento-link__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. EE -->
+    <section class="project" id="ee">
+      <div class="project__header reveal">
+        <div class="project__identity">
+          <img class="project__logo" src="assets/img/EE Logo.svg" alt="EE">
+        </div>
+        <span class="project__dates">2019 – 2021</span>
+      </div>
+      <div class="project__meta reveal">
+        <div class="project__meta-left">
+          <p class="project__description">The UK's largest mobile network. Led the end-to-end design of a greenfield mobile app for iOS and Android, from discovery through to the final product.</p>
+          <a class="project__link" href="pages/ee.html">View case study</a>
+        </div>
+        <div class="project__meta-right">
+          <ul class="project__tags">
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>B2B</li>
+            <li class="tag"><span class="tag__icon" aria-hidden="true"></span>Mobile</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project__screenshots">
+        <a class="bento-link reveal" href="pages/ee.html">
+          <div class="bento bento--full">
+            <img src="assets/img/Flex Showcase Transparent 1.png" alt="EE mobile app — five screens">
+          </div>
+          <span class="bento-link__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <p class="section-label">Reviews</p>
+      <div class="testimonials__grid">
+
+        <blockquote class="testimonial reveal">
+          <p class="testimonial__quote">Journeys he designed are now best in class examples at EE, enjoyed by millions yearly.</p>
+          <footer class="testimonial__attribution">
+            <img class="testimonial__avatar" src="assets/img/joseph.jpeg" alt="Joseph Cooney" width="64" height="64">
+            <div>
+              <cite class="testimonial__name">Joseph Cooney</cite>
+              <span class="testimonial__role">Lead Product Manager, EE</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial reveal">
+          <p class="testimonial__quote">He was able to simplify complex ideas and translate them into intuitive design solutions that made it easy for our users.</p>
+          <footer class="testimonial__attribution">
+            <img class="testimonial__avatar" src="assets/img/Tom.png" alt="Tom Allison" width="64" height="64">
+            <div>
+              <cite class="testimonial__name">Tom Allison</cite>
+              <span class="testimonial__role">Co-Founder, Ferriswheel</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial reveal">
+          <p class="testimonial__quote">He can work conceptually, he can work collaboratively, he can work fast, and he can grind out a win.</p>
+          <footer class="testimonial__attribution">
+            <img class="testimonial__avatar" src="assets/img/Vaughn.jpeg" alt="Vaughn McKenzie-Landell" width="64" height="64">
+            <div>
+              <cite class="testimonial__name">Vaughn McKenzie-Landell</cite>
+              <span class="testimonial__role">Founder, JAAX</span>
+            </div>
+          </footer>
+        </blockquote>
+
+      </div>
+    </section>
+
+    <!-- 6. About -->
+    <section class="about" id="about">
+      <p class="section-label">About</p>
+      <div class="about__body reveal">
+        <div class="about__text">
+          <p class="about__bio">Product designer with 14+ years experience across B2B and B2C, from YC startups to FTSE 100 companies. I've been the founding or sole designer at multiple companies, working directly with founders and leadership to build design functions from scratch.</p>
+          <nav class="about__links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+          </nav>
+        </div>
+        <div class="about__avatar">
+          <img src="assets/img/avatar-samir.png" alt="Samir" width="160" height="160">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__built-with">
+      Built with <img class="site-footer__claude-icon" src="assets/img/claude-code-icon.svg" alt="Claude Code" width="18" height="18">
+    </span>
+    <span class="site-footer__commit">Last commit: <span id="commitAgo"></span></span>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'color-scheme';
+      const root = document.documentElement;
+
+      function applyScheme(scheme) {
+        root.dataset.colorScheme = scheme;
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) applyScheme(stored);
+
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener('change', function (e) {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          applyScheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      function init() {
+        // Theme toggle
+        var themeBtn = document.getElementById('themeToggle');
+        themeBtn.addEventListener('click', function () {
+          var current = root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+          var next = current === 'dark' ? 'light' : 'dark';
+          applyScheme(next);
+          localStorage.setItem(STORAGE_KEY, next);
+        });
+
+        // London time with blinking colon
+        function updateTime() {
+          var now = new Date();
+          var parts = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London', hour12: false }).split(':');
+          document.getElementById('headerTime').innerHTML = parts[0] + '<span class="header-location__colon">:</span>' + parts[1];
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // Last commit ticker
+        var LAST_COMMIT = 1781864218000;
+        function updateCommitAgo() {
+          var diff = Math.floor((Date.now() - LAST_COMMIT) / 1000);
+          var text;
+          if (diff < 60) text = diff + 's ago';
+          else if (diff < 3600) text = Math.floor(diff / 60) + 'm ago';
+          else if (diff < 86400) text = Math.floor(diff / 3600) + 'h ago';
+          else text = Math.floor(diff / 86400) + 'd ago';
+          document.getElementById('commitAgo').textContent = text;
+        }
+        updateCommitAgo();
+        setInterval(updateCommitAgo, 1000);
+
+        // Copy email
+        document.getElementById('copyEmail').addEventListener('click', function () {
+          var el = this;
+          navigator.clipboard.writeText('hi@samirrf.com').then(function () {
+            el.classList.add('is-copied');
+            setTimeout(function () { el.classList.remove('is-copied'); }, 1500);
+          });
+        });
+
+        // Peek hover — swap title text
+        var samirEl = document.getElementById('samirHover');
+        var heroSection = document.querySelector('.hero');
+        samirEl.addEventListener('mouseenter', function () {
+          heroSection.classList.add('hero--peek-active');
+        });
+        samirEl.addEventListener('mouseleave', function () {
+          heroSection.classList.remove('hero--peek-active');
+        });
+
+        // Scroll reveal with staggered load
+        var reveals = document.querySelectorAll('.reveal');
+        var heroDelays = {
+          0: 0,
+          1: 0,
+          2: 0.3,
+          3: 0.4,
+          4: 0.7
+        };
+        var heroCount = 0;
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '-40px' });
+
+        reveals.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            var d = heroDelays[heroCount] !== undefined ? heroDelays[heroCount] : 0.8 + (heroCount - 4) * 0.1;
+            el.style.transitionDelay = d + 's';
+            heroCount++;
+            requestAnimationFrame(function () {
+              el.classList.add('is-visible');
+            });
+          } else {
+            el.style.transitionDelay = '0.15s';
+            observer.observe(el);
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
+</body>
+</html>
