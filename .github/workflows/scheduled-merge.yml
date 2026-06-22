@@ -1,0 +1,16 @@
+name: Scheduled merge — Duffel case study
+
+on:
+  schedule:
+    # 9pm BST = 8pm UTC on 22 June 2026
+    - cron: '0 20 22 6 *'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge PR #1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge 1 --merge --delete-branch
