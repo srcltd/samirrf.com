@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferriswheel - Case Study</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/case-study.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-back" href="../index.html" aria-label="Back to home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <button class="header-email" id="copyEmail" type="button" aria-label="Copy email address">
+      <span class="header-email__text">hi@samirrf.com</span>
+      <svg class="header-email__icon header-email__icon--copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <svg class="header-email__icon header-email__icon--check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle class="header-email__circle" cx="12" cy="12" r="10" stroke="#2b8a3e"/><polyline points="8 12 11 15 16 9" stroke="#2b8a3e"/></svg>
+      <span class="header-email__toast">Copied!</span>
+    </button>
+    <div class="header-right">
+      <span class="header-location">
+        <span class="header-location__city">LDN</span>
+        <img class="header-location__crest" src="../assets/img/arsenal.svg" alt="" width="16" height="16">
+        <span class="header-location__time" id="headerTime"></span>
+      </span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <span class="theme-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="cs-page">
+
+    <!-- 1. Header -->
+    <div class="cs-section cs-header-section cs-narrow reveal">
+      <div class="cs-header">
+        <img class="cs-header__logo cs-header__logo--dark" src="../assets/img/Ferriswheel Logo - Icon.svg" alt="Ferriswheel">
+        <img class="cs-header__logo cs-header__logo--light" src="../assets/img/Ferriswheel Logo - Icon Light.svg" alt="Ferriswheel">
+        <p class="cs-header__eyebrow">2021 - 2022</p>
+        <h1 class="cs-header__title">Designing trust into a space that had none</h1>
+        <p class="cs-header__subtitle">Ferriswheel was a fintech startup building a crypto trading platform and NFT marketplace. As the sole product designer, I led the end-to-end design across web and mobile - from user research and a new NFT marketplace through to a full trading platform redesign and rebrand with Koto.</p>
+        <ul class="cs-header__tags">
+          <li class="cs-tag"><span class="tag__icon tag__icon--b2c" aria-hidden="true"></span>B2C</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--fintech" aria-hidden="true"></span>Fintech</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--mobile" aria-hidden="true"></span>Mobile</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--web" aria-hidden="true"></span>Web</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- 2. The Problem -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The problem</p>
+        <h2 class="cs-h2">Everyone was building for experts. Ferriswheel's users weren't experts.</h2>
+        <div class="cs-body">
+          <p>When NFTs hit the mainstream in 2021, the marketplaces that existed were built by crypto natives for crypto natives. OpenSea and Rarible assumed you already understood wallets, gas fees, and blockchain provenance. Ferriswheel had built its reputation on the opposite - making crypto trading feel safe and approachable for people who were new to it. The founders wanted to bring that same simplicity to NFTs.</p>
+          <p>I surveyed 327 of Ferriswheel's existing users and interviewed 12 in depth. The research confirmed what we suspected but sharpened it: users weren't just unfamiliar with NFTs, they were actively sceptical. They'd looked at existing marketplaces and bounced. They didn't understand where the value came from, didn't trust what they were buying was real, and didn't have the vocabulary to ask the right questions.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">I went into OpenSea to understand, but it still doesn't make sense. It confused the hell out of me, so I left.</p>
+          <footer class="testimonial__attribution">
+            <div>
+              <span class="testimonial__role">User testing participant</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 3. The Marketplace -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The marketplace</p>
+        <h2 class="cs-h2">Curate first, browse later</h2>
+        <div class="cs-body">
+          <p>The research pointed to three things that had to be true for Ferriswheel's users to spend money on an NFT: they needed to understand what they were buying, they needed to trust that it was legitimate, and they needed the platform to narrow the field rather than show them everything at once.</p>
+          <p>The marketplace was designed around all three. A feed - deliberately borrowing from patterns users already understood - replaced the grid-of-everything approach that other marketplaces used. Collections were curated rather than open-listed. Verification was prominent and explained, not just a badge. And "Boosted NFTs" - collections Ferriswheel had vetted and could offer with reduced fees - gave users a clear starting point when they didn't know where to begin.</p>
+          <p>The purchase flow was designed to feel like e-commerce, not DeFi. Cart, payment with a credit card, confirmation. No wallet connection required upfront, no gas fee anxiety. The complexity was still there underneath, but the interface didn't expose it until you needed it.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">It's really easy, it's not really complicated like other crypto apps. What you're looking for is right there.</p>
+          <footer class="testimonial__attribution">
+            <div>
+              <span class="testimonial__role">User testing participant</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">NFT marketplace - browse, add to cart, and checkout on mobile.</p>
+        </div>
+      </div>
+      <div class="cs-bento cs-bento--video reveal">
+        <video class="cs-video" src="../assets/video/ferriswheel-nft-buy.mp4" muted loop playsinline></video>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">Manage your NFT - list for sale, auction, fractionalise, lend, or transfer.</p>
+        </div>
+      </div>
+      <div class="cs-bento reveal">
+        <img src="../assets/img/ferriswheel-manage-nft.png" alt="Manage your NFT — list for sale, auction, fractionalise, lend, or transfer" loading="lazy">
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">Fractionalise - split ownership into affordable shares.</p>
+        </div>
+      </div>
+      <div class="cs-bento reveal">
+        <img src="../assets/img/ferriswheel-fractionalise.png" alt="Fractionalise — split ownership into affordable shares" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 4. The Platform -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The platform</p>
+        <h2 class="cs-h2">Stop treating new users like traders</h2>
+        <div class="cs-body">
+          <p>As the NFT marketplace took shape, my remit expanded to the trading platform itself - the original Ferriswheel product. At the same time, the agency Koto was undertaking a major rebrand, and I was responsible for rolling the new brand across all touchpoints.</p>
+          <p>The trading platform had a problem that mirrored the NFT space: the existing design used a swap form borrowed from decentralised exchanges like Uniswap. Two currency inputs, a swap arrow between them. For someone who trades crypto daily, this is intuitive. For Ferriswheel's users - who the research showed were mostly novices treating crypto as a small speculative investment alongside a traditional portfolio - it was anxiety-inducing and unfamiliar.</p>
+          <p>I looked at the platforms our users actually referenced in interviews - investment apps, stock trading tools - and argued that Ferriswheel should adopt a "fiat first" approach. Buy means buying with cash. Sell means selling for cash. You'd only see a swap form when converting one crypto to another. This wasn't a surface-level change - it meant restructuring the entire information architecture around a different mental model. The word "fiat" itself was removed entirely.</p>
+          <p>The redesign unified both products - crypto trading and the NFT marketplace - under one navigation and one design system, with the Koto rebrand applied across everything.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-callout">
+          <p>&ldquo;Ferriswheel aren't going to waste their time with coins that aren't feasible. I was under the impression that Ferriswheel were only holding the trustworthy crypto.&rdquo;</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">Buying crypto with a debit card - fiat first, no jargon.</p>
+        </div>
+      </div>
+      <div class="cs-bento cs-bento--video reveal">
+        <video class="cs-video" src="../assets/video/ferriswheel-buy-crypto.mp4" muted loop playsinline></video>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">Desktop checkout - £100 of ETH with a card, as simple as any online purchase.</p>
+        </div>
+      </div>
+      <div class="cs-bento reveal">
+        <img src="../assets/img/ferriswheel-buy-eth.png" alt="Desktop checkout — £100 of ETH with a card, as simple as any online purchase" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 5. Reflection -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">Reflection</p>
+        <h2 class="cs-h2">The product earned trust. The market didn't hold.</h2>
+        <div class="cs-body">
+          <p>Ferriswheel had a 4.5-star rating from over a thousand reviews. People kept real money on the platform - for some, it was a meaningful part of their investment portfolio. The core trading product worked, and the design work still holds up.</p>
+          <p>NFTs were what everyone was excited about in 2021. We built a marketplace that took the space seriously - educated users, curated collections, made purchasing feel as safe as buying anything else online. But NFTs as a category never really became what people hoped they would, and the company's focus stretched across too many bets at once. Ferriswheel eventually closed its doors.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">Samir was able to simplify complex ideas and translate them into intuitive design solutions that made it easy for our users to navigate the platform. He was a great advocate for design within the Ferriswheel squad and always pushed for the best possible user experience. His contribution to the development of the platform's design system was indispensable - inheriting and then translating a new brand identity into a cohesive design system that was scalable and flexible enough to evolve over time.</p>
+          <footer class="testimonial__attribution">
+            <img class="testimonial__avatar" src="../assets/img/Tom.png" alt="Tom Allison" width="64" height="64">
+            <div>
+              <cite class="testimonial__name">Tom Allison</cite>
+              <span class="testimonial__role">Co-Founder, Ferriswheel</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__built-with">
+      Built with <img class="site-footer__claude-icon" src="../assets/img/claude-code-icon.svg" alt="Claude Code" width="18" height="18">
+    </span>
+    <span class="site-footer__commit">Last commit: <span id="commitAgo"></span></span>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'color-scheme';
+      const root = document.documentElement;
+
+      function applyScheme(scheme) {
+        root.dataset.colorScheme = scheme;
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      const mqInit = window.matchMedia('(prefers-color-scheme: dark)');
+      applyScheme(stored || (mqInit.matches ? 'dark' : 'light'));
+
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener('change', function (e) {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          applyScheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      function init() {
+        // Theme toggle
+        var themeBtn = document.getElementById('themeToggle');
+        themeBtn.addEventListener('click', function () {
+          var current = root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+          var next = current === 'dark' ? 'light' : 'dark';
+          applyScheme(next);
+          localStorage.setItem(STORAGE_KEY, next);
+        });
+
+        // London time with blinking colon
+        function updateTime() {
+          var now = new Date();
+          var parts = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London', hour12: false }).split(':');
+          document.getElementById('headerTime').innerHTML = parts[0] + '<span class="header-location__colon">:</span>' + parts[1];
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // Last commit ticker
+        var LAST_COMMIT = null;
+        function updateCommitAgo() {
+          if (!LAST_COMMIT) return;
+          var diff = Math.floor((Date.now() - LAST_COMMIT) / 1000);
+          var text;
+          if (diff < 60) text = diff + 's ago';
+          else if (diff < 3600) text = Math.floor(diff / 60) + 'm ago';
+          else if (diff < 86400) text = Math.floor(diff / 3600) + 'h ago';
+          else text = Math.floor(diff / 86400) + 'd ago';
+          document.getElementById('commitAgo').textContent = text;
+        }
+        fetch('https://api.github.com/repos/srcltd/samirrf.com/commits?per_page=1')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data[0] && data[0].commit) {
+              LAST_COMMIT = new Date(data[0].commit.committer.date).getTime();
+              updateCommitAgo();
+              setInterval(updateCommitAgo, 1000);
+            }
+          })
+          .catch(function () {});
+
+        // Copy email
+        document.getElementById('copyEmail').addEventListener('click', function () {
+          var el = this;
+          navigator.clipboard.writeText('hi@samirrf.com').then(function () {
+            el.classList.add('is-copied');
+            setTimeout(function () { el.classList.remove('is-copied'); }, 1500);
+          });
+        });
+
+        // Play video on scroll
+        var videos = document.querySelectorAll('.cs-video');
+        var videoObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.play();
+            } else {
+              entry.target.pause();
+            }
+          });
+        }, { threshold: 0.25 });
+        videos.forEach(function (v) { videoObserver.observe(v); });
+
+        // Scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+              var prev = entry.target.previousElementSibling;
+              if (prev) {
+                var cap = prev.querySelector('.cs-artefact-caption');
+                if (cap) cap.classList.add('is-visible');
+              }
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '-40px' });
+
+        var heroCount = 0;
+        reveals.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            var d = 0.3 + heroCount * 0.2;
+            el.style.transitionDelay = d + 's';
+            heroCount++;
+            requestAnimationFrame(function () {
+              el.classList.add('is-visible');
+              var prev = el.previousElementSibling;
+              if (prev) {
+                var cap = prev.querySelector('.cs-artefact-caption');
+                if (cap) cap.classList.add('is-visible');
+              }
+            });
+          } else {
+            el.style.transitionDelay = '0.1s';
+            observer.observe(el);
+          }
+        });
+
+        // Footer icon animation
+        var footerBuilt = document.querySelector('.site-footer__built-with');
+        if (footerBuilt) {
+          var footerObs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+              footerBuilt.classList.add('is-visible');
+              footerObs.unobserve(footerBuilt);
+            }
+          }, { threshold: 0.5 });
+          footerObs.observe(footerBuilt);
+        }
+
+        // Matrix easter egg
+        var claudeIcon = document.querySelector('.site-footer__claude-icon');
+        if (claudeIcon) {
+          claudeIcon.style.cursor = 'pointer';
+          claudeIcon.addEventListener('mouseenter', function () {
+            var overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;pointer-events:all;cursor:pointer;background:rgba(0,0,0,0.95);overflow:hidden;';
+            document.body.appendChild(overlay);
+            var cols = Math.ceil(window.innerWidth / 28);
+            var src = claudeIcon.src;
+            for (var c = 0; c < cols; c++) {
+              (function (col) {
+                var count = 8 + Math.floor(Math.random() * 12);
+                for (var i = 0; i < count; i++) {
+                  var img = document.createElement('img');
+                  img.src = src;
+                  var size = 12 + Math.floor(Math.random() * 24);
+                  img.style.cssText = 'position:absolute;width:' + size + 'px;height:' + size + 'px;opacity:0;left:' + (col * 28 + 5) + 'px;top:-' + size + 'px;';
+                  var delay = Math.random() * 3000 + i * 200;
+                  var dur = 800 + Math.random() * 3500;
+                  overlay.appendChild(img);
+                  setTimeout(function (el, d) {
+                    el.style.transition = 'top ' + d + 'ms linear, opacity 0.3s';
+                    el.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+                    el.style.top = (window.innerHeight + 20) + 'px';
+                  }, delay, img, dur);
+                }
+              })(c);
+            }
+            setTimeout(function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            }, 5000);
+            overlay.addEventListener('click', function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            });
+          });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EE Flex - Case Study</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/case-study.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-back" href="../index.html" aria-label="Back to home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <button class="header-email" id="copyEmail" type="button" aria-label="Copy email address">
+      <span class="header-email__text">hi@samirrf.com</span>
+      <svg class="header-email__icon header-email__icon--copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <svg class="header-email__icon header-email__icon--check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle class="header-email__circle" cx="12" cy="12" r="10" stroke="#2b8a3e"/><polyline points="8 12 11 15 16 9" stroke="#2b8a3e"/></svg>
+      <span class="header-email__toast">Copied!</span>
+    </button>
+    <div class="header-right">
+      <span class="header-location">
+        <span class="header-location__city">LDN</span>
+        <img class="header-location__crest" src="../assets/img/arsenal.svg" alt="" width="16" height="16">
+        <span class="header-location__time" id="headerTime"></span>
+      </span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <span class="theme-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="cs-page">
+
+    <!-- 1. Header -->
+    <div class="cs-section cs-header-section cs-narrow reveal">
+      <div class="cs-header">
+        <a class="logo-link" href="https://www.ee.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Visit EE (opens in a new tab)">
+          <img class="cs-header__logo cs-header__logo--ee cs-header__logo--dark" src="../assets/img/EE Logo.svg" alt="EE Flex">
+          <img class="cs-header__logo cs-header__logo--ee cs-header__logo--light" src="../assets/img/EE Logo Yellow.svg" alt="EE Flex">
+        </a>
+        <p class="cs-header__eyebrow">2020 - 2021</p>
+        <h1 class="cs-header__title">A mobile network that recommends you spend less</h1>
+        <p class="cs-header__subtitle">EE Flex is a no-contract, SIM-only product targeting a younger, digitally native audience. I led the end-to-end design of a new mobile app - from a design sprint and user research through to the final product that was demoed to EE's CEO.</p>
+        <ul class="cs-header__tags">
+          <li class="cs-tag"><span class="tag__icon tag__icon--b2c" aria-hidden="true"></span>B2C</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--telco" aria-hidden="true"></span>Telco</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--mobile" aria-hidden="true"></span>Mobile App</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--ios" aria-hidden="true"></span>iOS</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--android" aria-hidden="true"></span>Android</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. The Problem -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The problem</p>
+        <h2 class="cs-h2">A no-commitment plan with a very committed signup process.</h2>
+        <div class="cs-body">
+          <p>EE launched Flex to target customers who didn't want long contracts or phone financing - people buying their phone outright and looking for a simple data plan. The kind of customer conditioned by Netflix and Spotify to expect instant, flexible, cancel-anytime products.</p>
+          <p>The existing Flex journey was the opposite of that. I worked with the analytics team to triage user feedback and walk through the journey myself. It took 16 minutes and 46 clicks to complete - for a product whose entire proposition was simplicity and flexibility. Conversion was poor, and the feedback made it clear why.</p>
+        </div>
+        <div class="cs-stat-row">
+          <div class="cs-stat-row__item">
+            <span class="cs-stat-row__icon" aria-hidden="true"><svg viewBox="0 -960 960 960" width="22" height="22" fill="currentColor"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg></span>
+            <div class="cs-stat-row__number">16<span class="cs-stat-row__unit">min</span></div>
+            <div class="cs-stat-row__label">To complete the order journey</div>
+          </div>
+          <div class="cs-stat-row__item">
+            <span class="cs-stat-row__icon" aria-hidden="true"><svg viewBox="0 -960 960 960" width="22" height="22" fill="currentColor"><path d="M419-80q-28 0-52.5-12T325-126L107-403l19-20q20-21 48-25t52 11l74 45v-328q0-17 11.5-28.5T340-760q17 0 29 11.5t12 28.5v472l-97-60 104 133q6 7 14 11t17 4h221q33 0 56.5-23.5T720-240v-160q0-17-11.5-28.5T680-440H461v-80h219q50 0 85 35t35 85v160q0 66-47 113T640-80H419ZM167-620q-13-22-20-47.5t-7-52.5q0-83 58.5-141.5T340-920q83 0 141.5 58.5T540-720q0 27-7 52.5T513-620l-69-40q8-14 12-28.5t4-31.5q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 17 4 31.5t12 28.5l-69 40Zm335 280Z"/></svg></span>
+            <div class="cs-stat-row__number">46<span class="cs-stat-row__unit">clicks</span></div>
+            <div class="cs-stat-row__label">To buy a SIM plan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Sprint -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The sprint</p>
+        <h2 class="cs-h2">The best idea got killed. The insight survived.</h2>
+        <div class="cs-body">
+          <p>We ran a design sprint to rethink the product from scratch. The idea we landed on was bold: offer a 30-day free trial with unlimited data, monitor the user's actual usage over that month, then recommend a plan based on what they'd really used. No guessing how many gigabytes you need - the app would figure it out.</p>
+          <p>The business killed the free trial. But the core insight was more important than the mechanic: data measured in gigabytes is an abstract concept. Previous EE research had shown that users couldn't translate gigabytes into real behaviour - how many hours of streaming, how many video calls. Our solution was to stop asking users to understand their data usage and instead show them, honestly, what they were actually using.</p>
+          <p>That transparency became the design pillar for the whole product. We'd recommend a plan based on real usage. We'd show you your social media data separately so you could see the value of unlimited social. And crucially, we'd recommend a cheaper plan if your usage showed you didn't need what you were paying for.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">I like it; it's honest. It's not trying to upsell me.</p>
+          <footer class="testimonial__attribution">
+            <div>
+              <span class="testimonial__role">User testing participant</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">User testing - participants reacting to the free trial proposition.</p>
+        </div>
+      </div>
+      <div class="cs-bento cs-bento--video reveal">
+        <video class="cs-video-player" src="../assets/video/ee-user-testing.mp4" controls playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture></video>
+      </div>
+    </section>
+
+    <!-- 4. The App -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The app</p>
+        <h2 class="cs-h2">Show people what they use. Let them decide.</h2>
+        <div class="cs-body">
+          <p>The app covered three core journeys: ordering a SIM, activating it, and managing your plan. The order journey was stripped back to the minimum - choose a plan, register, pay. The management experience was where the real design thinking lived.</p>
+          <p>The usage screen showed data remaining with a clear breakdown of what was free (social media) and what counted against your allowance. Over time, the app built up a picture of your actual usage and surfaced a recommended plan based on your last three months. If that recommendation was a cheaper plan, we showed it anyway. Cancel and pause were one tap away, not buried in settings.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">The Flex app - usage tracking, plan recommendations, and plan management.</p>
+        </div>
+      </div>
+      <div class="cs-bento cs-bento--video reveal">
+        <video class="cs-video" src="../assets/video/ee-flex-ios.mp4" muted loop playsinline></video>
+      </div>
+    </section>
+
+    <!-- 5. The Integration -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">The integration</p>
+        <h2 class="cs-h2">Halfway through, the product became part of EE.</h2>
+        <div class="cs-body">
+          <p>The project started as a standalone challenger brand - a distinct sub-brand of EE with its own identity and its own app. We'd scoped for new users only, with clean signup flows and a simple onboarding. Then the direction changed. EE decided Flex would be much more closely aligned with the main brand, and suddenly the scope shifted from "build a new product" to "integrate with everything EE already has."</p>
+          <p>That meant working with EE's login team to understand how Flex would sit alongside existing EE accounts. We'd originally designed a passwordless registration flow - no password, just a verification email link - but that wasn't technically feasible with EE's auth systems for launch. Instead, users would be redirected to an in-app browser to log in or register with EE. We'd only scoped for new users, but now we had to handle existing EE customers migrating to Flex too. I mapped out every permutation in Figma - new to EE, existing PAYG, existing Flex customers upgrading, affiliates who'd bought a SIM in a shop, eSIM-enabled phones versus physical SIM, customers on WiFi versus mobile network - each with different registration, authentication, and activation paths.</p>
+          <p>The eSIM work came out of that complexity. My tech lead and I heard about eSIM support coming to EE and saw the opportunity - a SIM-only product that could activate instantly without waiting for a physical card in the post. We approached EE's SIM infrastructure team, understood the technology, and designed the first eSIM activation flows in all of EE before any other team had tackled the UX.</p>
+          <p>The branding was its own constraint. We'd been told "EE sub-brand" but given almost nothing to work with - a logo and some photos, no UI patterns, no component library. When the direction shifted to align with EE's main brand, I designed a dark mode visual system that let yellow work as the primary highlight colour without the accessibility issues it would cause on a light background, and built the component library from scratch.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <div class="cs-artefact-caption">
+          <p class="cs-artefact-caption__text">New customer order journeys - eSIM, physical SIM, and affiliate paths. A snapshot of a much larger map.</p>
+        </div>
+      </div>
+      <div class="cs-bento cs-bento--peek cs-bento--peek-img reveal" data-peek="journey-map">
+        <img src="../assets/img/ee-journey-map.png" alt="Activation and registration journey map covering every EE customer type" loading="lazy">
+        <div class="cs-peek__gradient"></div>
+        <button class="cs-peek__open" aria-label="Open full view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          Explore
+        </button>
+      </div>
+    </section>
+
+    <!-- 6. Reflection -->
+    <section class="cs-section reveal">
+      <div class="cs-narrow">
+        <p class="cs-eyebrow">Reflection</p>
+        <h2 class="cs-h2">Built over 18 months. Never reached a single customer.</h2>
+        <div class="cs-body">
+          <p>We built the entire app during COVID - research, design sprint, wireframes, prototypes, visual design, every customer permutation mapped and tested. It tested well at every stage. It was ready.</p>
+          <p>The project was shelved before it reached the public. After 18 months of work, that was genuinely crushing.</p>
+          <p>When the app was demoed to EE's senior leadership, the CEO asked for the features to be built into the main EE app rather than launched as a standalone product. As a freelancer, I moved on - but I stayed in touch with the lead PM on the project, who later told me they'd followed through.</p>
+        </div>
+      </div>
+      <div class="cs-narrow">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">A very talented designer passionate about delivering right by customers in a simple, brilliant and innovative way. Samir was not afraid to challenge the idea of possible, pushing for innovative features that tackled customer problem statements and business goals in the simplest way for the user. Journeys he designed are now best in class examples at EE and feature in experiences enjoyed by millions of users yearly, including eSIM, Join Personalisation, and Identity.</p>
+          <footer class="testimonial__attribution">
+            <img class="testimonial__avatar" src="../assets/img/joseph.jpeg" alt="Joseph Cooney" width="64" height="64">
+            <div>
+              <cite class="testimonial__name">Joseph Cooney</cite>
+              <span class="testimonial__role">Lead Product Manager, EE</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__built-with">
+      Built with <img class="site-footer__claude-icon" src="../assets/img/claude-code-icon.svg" alt="Claude Code" width="18" height="18">
+    </span>
+    <span class="site-footer__commit">Last commit: <span id="commitAgo"></span></span>
+  </footer>
+
+  <div class="cs-lightbox" id="csLightbox">
+    <button class="cs-lightbox__close" aria-label="Close">&times;</button>
+    <iframe class="cs-lightbox__iframe" id="csLightboxIframe" src="" title=""></iframe>
+    <img class="cs-lightbox__img" id="csLightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'color-scheme';
+      const root = document.documentElement;
+
+      function applyScheme(scheme) {
+        root.dataset.colorScheme = scheme;
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      const mqInit = window.matchMedia('(prefers-color-scheme: dark)');
+      applyScheme(stored || (mqInit.matches ? 'dark' : 'light'));
+
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener('change', function (e) {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          applyScheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      function init() {
+        // Theme toggle
+        var themeBtn = document.getElementById('themeToggle');
+        themeBtn.addEventListener('click', function () {
+          var current = root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+          var next = current === 'dark' ? 'light' : 'dark';
+          applyScheme(next);
+          localStorage.setItem(STORAGE_KEY, next);
+          setTimeout(syncIframeThemes, 50);
+        });
+
+        // London time with blinking colon
+        function updateTime() {
+          var now = new Date();
+          var parts = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London', hour12: false }).split(':');
+          document.getElementById('headerTime').innerHTML = parts[0] + '<span class="header-location__colon">:</span>' + parts[1];
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // Last commit ticker
+        var LAST_COMMIT = null;
+        function updateCommitAgo() {
+          if (!LAST_COMMIT) return;
+          var diff = Math.floor((Date.now() - LAST_COMMIT) / 1000);
+          var text;
+          if (diff < 60) text = diff + 's ago';
+          else if (diff < 3600) text = Math.floor(diff / 60) + 'm ago';
+          else if (diff < 86400) text = Math.floor(diff / 3600) + 'h ago';
+          else text = Math.floor(diff / 86400) + 'd ago';
+          document.getElementById('commitAgo').textContent = text;
+        }
+        fetch('https://api.github.com/repos/srcltd/samirrf.com/commits?per_page=1')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data[0] && data[0].commit) {
+              LAST_COMMIT = new Date(data[0].commit.committer.date).getTime();
+              updateCommitAgo();
+              setInterval(updateCommitAgo, 1000);
+            }
+          })
+          .catch(function () {});
+
+        // Copy email
+        document.getElementById('copyEmail').addEventListener('click', function () {
+          var el = this;
+          navigator.clipboard.writeText('hi@samirrf.com').then(function () {
+            el.classList.add('is-copied');
+            setTimeout(function () { el.classList.remove('is-copied'); }, 1500);
+          });
+        });
+
+        // Sync iframe themes with parent
+        function getTheme() {
+          return root.dataset.colorScheme || (mq.matches ? 'dark' : 'light');
+        }
+        function syncIframeThemes() {
+          var theme = getTheme();
+          var iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function (f) {
+            if (f.contentWindow) f.contentWindow.postMessage({ theme: theme }, '*');
+          });
+        }
+        // Fade in iframes after theme sync
+        document.querySelectorAll('.cs-bento iframe').forEach(function (f) {
+          function reveal() {
+            if (f.classList.contains('is-loaded')) return;
+            syncIframeThemes();
+            setTimeout(function () { f.classList.add('is-loaded'); }, 300);
+          }
+          f.addEventListener('load', reveal);
+          // Fallback: reveal after 2s in case load event was missed
+          setTimeout(reveal, 2000);
+        });
+        window.addEventListener('load', function () {
+          setTimeout(syncIframeThemes, 500);
+        });
+
+        // Play video on scroll
+        var videos = document.querySelectorAll('.cs-video');
+        var videoObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.play();
+            } else {
+              entry.target.pause();
+            }
+          });
+        }, { threshold: 0.25 });
+        videos.forEach(function (v) { videoObserver.observe(v); });
+
+        // Autoplay interactive embeds on scroll
+        var iframes = document.querySelectorAll('.cs-wide-iframe iframe');
+        var iframeObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var iframe = entry.target;
+              iframeObserver.unobserve(iframe);
+              function tryPlay() {
+                try {
+                  var doc = iframe.contentDocument || iframe.contentWindow.document;
+                  var btn = doc.getElementById('playBtn') || doc.querySelector('.play-btn');
+                  if (btn) {
+                    btn.click();
+                  } else {
+                    // Bundler may still be rebuilding — retry
+                    setTimeout(tryPlay, 1000);
+                  }
+                } catch(e) {}
+              }
+              // Bundler needs time to unpack and rebuild the page
+              setTimeout(tryPlay, 2000);
+              setTimeout(tryPlay, 4000);
+            }
+          });
+        }, { threshold: 0.15 });
+        iframes.forEach(function (f) { iframeObserver.observe(f); });
+
+        // Peek + Lightbox
+        var lightbox = document.getElementById('csLightbox');
+        var lightboxIframe = document.getElementById('csLightboxIframe');
+        var lightboxImg = document.getElementById('csLightboxImg');
+        var lightboxClose = lightbox.querySelector('.cs-lightbox__close');
+
+        document.querySelectorAll('.cs-bento--peek').forEach(function (peek) {
+          peek.addEventListener('click', function () {
+            var img = peek.querySelector('img');
+            lightbox.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+            if (img) {
+              // Image peek — open fit-to-screen, then free pan + zoom
+              lightbox.classList.add('is-image');
+              lightboxImg.classList.remove('is-loaded');
+              lightboxImg.src = img.src;
+              lightboxImg.onload = function () {
+                fitLightboxImg();
+                setTimeout(function () { lightboxImg.classList.add('is-loaded'); }, 100);
+              };
+            } else {
+              // Iframe peek — show interactive embed
+              var src = peek.querySelector('iframe').src;
+              lightboxIframe.src = src;
+              lightboxIframe.classList.remove('is-loaded');
+              lightboxIframe.onload = function () {
+                var theme = getTheme();
+                lightboxIframe.contentWindow.postMessage({ theme: theme }, '*');
+                setTimeout(function () { lightboxIframe.classList.add('is-loaded'); }, 300);
+              };
+            }
+          });
+        });
+
+        // Image lightbox: free pan + zoom (wheel, trackpad/touch pinch, drag)
+        var imgScale = 1, imgTx = 0, imgTy = 0, imgMinScale = 1, imgMaxScale = 1;
+
+        function applyImgTransform() {
+          lightboxImg.style.transform = 'translate(' + imgTx + 'px,' + imgTy + 'px) scale(' + imgScale + ')';
+        }
+
+        function fitLightboxImg() {
+          var vw = lightbox.clientWidth, vh = lightbox.clientHeight;
+          var nw = lightboxImg.naturalWidth, nh = lightboxImg.naturalHeight;
+          if (!nw || !nh) return;
+          imgMinScale = Math.min(vw / nw, vh / nh);
+          imgMaxScale = Math.max(imgMinScale * 16, 1.5);
+          imgScale = imgMinScale;
+          imgTx = (vw - nw * imgScale) / 2;
+          imgTy = (vh - nh * imgScale) / 2;
+          applyImgTransform();
+        }
+
+        function clampImgPan() {
+          var vw = lightbox.clientWidth, vh = lightbox.clientHeight;
+          var w = lightboxImg.naturalWidth * imgScale;
+          var h = lightboxImg.naturalHeight * imgScale;
+          if (w <= vw) imgTx = (vw - w) / 2;
+          else imgTx = Math.min(0, Math.max(vw - w, imgTx));
+          if (h <= vh) imgTy = (vh - h) / 2;
+          else imgTy = Math.min(0, Math.max(vh - h, imgTy));
+        }
+
+        function zoomAt(px, py, newScale) {
+          newScale = Math.min(imgMaxScale, Math.max(imgMinScale, newScale));
+          var imgX = (px - imgTx) / imgScale;
+          var imgY = (py - imgTy) / imgScale;
+          imgScale = newScale;
+          imgTx = px - imgX * imgScale;
+          imgTy = py - imgY * imgScale;
+          clampImgPan();
+          applyImgTransform();
+        }
+
+        // Figma-style: two-finger scroll pans, pinch (ctrl+wheel) zooms toward cursor
+        lightbox.addEventListener('wheel', function (e) {
+          if (!lightbox.classList.contains('is-image')) return;
+          e.preventDefault();
+          var rect = lightbox.getBoundingClientRect();
+          if (e.ctrlKey) {
+            zoomAt(e.clientX - rect.left, e.clientY - rect.top, imgScale * Math.exp(-e.deltaY * 0.02));
+          } else {
+            imgTx -= e.deltaX; imgTy -= e.deltaY;
+            clampImgPan(); applyImgTransform();
+          }
+        }, { passive: false });
+
+        // Double-click toggles: zoom in toward the cursor, or back to fit
+        lightboxImg.addEventListener('dblclick', function (e) {
+          e.preventDefault();
+          var rect = lightbox.getBoundingClientRect();
+          if (imgScale > imgMinScale * 1.05) {
+            fitLightboxImg();
+          } else {
+            zoomAt(e.clientX - rect.left, e.clientY - rect.top, imgMinScale * 4);
+          }
+        });
+
+        // Mouse drag to pan
+        var dragging = false, lastX = 0, lastY = 0;
+        lightboxImg.addEventListener('mousedown', function (e) {
+          dragging = true; lastX = e.clientX; lastY = e.clientY;
+          lightboxImg.classList.add('is-grabbing');
+          e.preventDefault();
+        });
+        window.addEventListener('mousemove', function (e) {
+          if (!dragging) return;
+          imgTx += e.clientX - lastX; imgTy += e.clientY - lastY;
+          lastX = e.clientX; lastY = e.clientY;
+          clampImgPan(); applyImgTransform();
+        });
+        window.addEventListener('mouseup', function () {
+          dragging = false; lightboxImg.classList.remove('is-grabbing');
+        });
+
+        // Touch: one finger pans, two fingers pinch-zoom
+        var touchMode = null, tLastX = 0, tLastY = 0, tStartDist = 0, tStartScale = 1, tCx = 0, tCy = 0;
+        function touchDist(t) {
+          var dx = t[0].clientX - t[1].clientX, dy = t[0].clientY - t[1].clientY;
+          return Math.sqrt(dx * dx + dy * dy);
+        }
+        lightboxImg.addEventListener('touchstart', function (e) {
+          if (e.touches.length === 1) {
+            touchMode = 'pan';
+            tLastX = e.touches[0].clientX; tLastY = e.touches[0].clientY;
+          } else if (e.touches.length === 2) {
+            touchMode = 'pinch';
+            tStartDist = touchDist(e.touches);
+            tStartScale = imgScale;
+            var rect = lightbox.getBoundingClientRect();
+            tCx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+            tCy = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+          }
+          e.preventDefault();
+        }, { passive: false });
+        lightboxImg.addEventListener('touchmove', function (e) {
+          if (touchMode === 'pan' && e.touches.length === 1) {
+            imgTx += e.touches[0].clientX - tLastX;
+            imgTy += e.touches[0].clientY - tLastY;
+            tLastX = e.touches[0].clientX; tLastY = e.touches[0].clientY;
+            clampImgPan(); applyImgTransform();
+          } else if (touchMode === 'pinch' && e.touches.length === 2) {
+            zoomAt(tCx, tCy, tStartScale * (touchDist(e.touches) / tStartDist));
+          }
+          e.preventDefault();
+        }, { passive: false });
+        lightboxImg.addEventListener('touchend', function (e) {
+          if (e.touches.length === 0) touchMode = null;
+          else if (e.touches.length === 1) {
+            touchMode = 'pan';
+            tLastX = e.touches[0].clientX; tLastY = e.touches[0].clientY;
+          }
+        });
+
+        // Refit if the window resizes while open
+        window.addEventListener('resize', function () {
+          if (lightbox.classList.contains('is-image') && lightbox.classList.contains('is-open')) {
+            fitLightboxImg();
+          }
+        });
+
+        lightboxClose.addEventListener('click', function () {
+          lightbox.classList.remove('is-open');
+          lightbox.classList.remove('is-image');
+          lightboxIframe.src = '';
+          lightboxImg.src = '';
+          lightboxImg.style.transform = '';
+          document.body.style.overflow = '';
+        });
+
+        lightbox.addEventListener('click', function (e) {
+          if (e.target === lightbox) {
+            lightboxClose.click();
+          }
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+            lightboxClose.click();
+          }
+        });
+
+        // Scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+              var prev = entry.target.previousElementSibling;
+              if (prev) {
+                var cap = prev.querySelector('.cs-artefact-caption');
+                if (cap) cap.classList.add('is-visible');
+              }
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '-40px' });
+
+        var heroCount = 0;
+        reveals.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            var d = 0.3 + heroCount * 0.2;
+            el.style.transitionDelay = d + 's';
+            heroCount++;
+            requestAnimationFrame(function () {
+              el.classList.add('is-visible');
+              var prev = el.previousElementSibling;
+              if (prev) {
+                var cap = prev.querySelector('.cs-artefact-caption');
+                if (cap) cap.classList.add('is-visible');
+              }
+            });
+          } else {
+            el.style.transitionDelay = '0.1s';
+            observer.observe(el);
+          }
+        });
+
+        // Footer icon animation
+        var footerBuilt = document.querySelector('.site-footer__built-with');
+        if (footerBuilt) {
+          var footerObs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+              footerBuilt.classList.add('is-visible');
+              footerObs.unobserve(footerBuilt);
+            }
+          }, { threshold: 0.5 });
+          footerObs.observe(footerBuilt);
+        }
+
+        // Matrix easter egg
+        var claudeIcon = document.querySelector('.site-footer__claude-icon');
+        if (claudeIcon) {
+          claudeIcon.style.cursor = 'pointer';
+          claudeIcon.addEventListener('mouseenter', function () {
+            var overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;pointer-events:all;cursor:pointer;background:rgba(0,0,0,0.95);overflow:hidden;';
+            document.body.appendChild(overlay);
+            var cols = Math.ceil(window.innerWidth / 28);
+            var src = claudeIcon.src;
+            for (var c = 0; c < cols; c++) {
+              (function (col) {
+                var count = 8 + Math.floor(Math.random() * 12);
+                for (var i = 0; i < count; i++) {
+                  var img = document.createElement('img');
+                  img.src = src;
+                  var size = 12 + Math.floor(Math.random() * 24);
+                  img.style.cssText = 'position:absolute;width:' + size + 'px;height:' + size + 'px;opacity:0;left:' + (col * 28 + 5) + 'px;top:-' + size + 'px;';
+                  var delay = Math.random() * 3000 + i * 200;
+                  var dur = 800 + Math.random() * 3500;
+                  overlay.appendChild(img);
+                  setTimeout(function (el, d) {
+                    el.style.transition = 'top ' + d + 'ms linear, opacity 0.3s';
+                    el.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+                    el.style.top = (window.innerHeight + 20) + 'px';
+                  }, delay, img, dur);
+                }
+              })(c);
+            }
+            setTimeout(function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            }, 5000);
+            overlay.addEventListener('click', function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            });
+          });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
+</body>
+</html>

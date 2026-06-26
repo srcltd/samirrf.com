@@ -147,6 +147,19 @@
   border-color: var(--color-border);
 }
 
+/* EE is a single colour mark (no light/dark variant). It's tall/narrow, so
+   give it more height but less vertical padding to keep the badge the same
+   size as the other logos. */
+.cs-header__logo--ee {
+  height: 34px;
+  padding-block: 7px;
+}
+
+[data-color-scheme='dark'] .cs-header__logo--ee {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
 .cs-header__eyebrow {
   font-size: 0.75rem;
   font-weight: 400;
@@ -178,14 +191,16 @@
   gap: var(--space-2);
 }
 
+/* Minimal pill — matches homepage .tag */
 .cs-tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.25em 0.7em;
+  gap: var(--space-1);
+  padding: 0.4em 0.85em;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--color-bg);
-  background: var(--color-text);
+  color: var(--color-text-subtle);
+  background: var(--color-surface);
   border-radius: 99px;
   white-space: nowrap;
 }
@@ -362,6 +377,15 @@
   padding-inline: var(--space-3);
 }
 
+/* Static image artefact inside a bento (screenshots, no lightbox) */
+.cs-bento img {
+  display: block;
+  max-width: min(1050px, 100%);
+  height: auto;
+  margin-inline: auto;
+  border-radius: 8px;
+}
+
 .cs-bento iframe {
   display: block;
   width: 100%;
@@ -392,6 +416,20 @@
 
 .cs-bento--video .cs-video {
   margin-top: 0;
+}
+
+/* Played video (with sound + native controls) rather than autoplay loop */
+.cs-bento--video:has(.cs-video-player) {
+  background: #000000;
+}
+
+.cs-bento--video .cs-video-player {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  border-radius: 12px;
+  background: #000;
 }
 
 .cs-bento--peek {
@@ -442,6 +480,32 @@
   transform: translateX(-50%) translateY(0);
 }
 
+.cs-bento--peek-img {
+  max-height: 820px;
+  /* Map artwork is on a light background — keep the bento light in every theme */
+  background: #f9f9f9;
+}
+
+.cs-bento--peek-img .cs-peek__gradient {
+  background: linear-gradient(to bottom, transparent, #f9f9f9);
+}
+
+@media (min-height: 1000px) {
+  .cs-bento--peek-img {
+    max-height: 70vh;
+  }
+}
+
+.cs-bento--peek-img img {
+  display: block;
+  width: 100%;
+  max-width: 855px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
 
 /* ============================================================
    CALLOUT BOX
@@ -461,6 +525,12 @@
   line-height: 1.7;
   color: var(--color-text-subtle);
   margin: 0;
+}
+
+.cs-page .testimonial {
+  max-width: 720px;
+  margin-inline: auto;
+  margin-top: var(--space-7);
 }
 
 
@@ -539,6 +609,60 @@
 }
 
 .cs-stat__label {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Stat cards — large number with a smaller unit, label beneath */
+.cs-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-5);
+  max-width: 720px;
+  margin: var(--space-7) auto var(--space-8);
+}
+
+.cs-stat-row__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: var(--space-6);
+}
+
+.cs-stat-row__icon {
+  display: flex;
+  margin-bottom: var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.cs-stat-row__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cs-stat-row__number {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.cs-stat-row__unit {
+  margin-left: 0.25em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.cs-stat-row__label {
+  margin-top: var(--space-3);
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--color-text-muted);
@@ -791,7 +915,7 @@
 }
 
 .cs-lightbox__close {
-  position: absolute;
+  position: fixed;
   top: 16px;
   right: 20px;
   z-index: 1001;
@@ -822,6 +946,46 @@
 }
 
 .cs-lightbox__iframe.is-loaded {
+  opacity: 1;
+}
+
+/* Image variant — free pan + zoom (wheel, pinch, drag) */
+.cs-lightbox.is-image {
+  overflow: hidden;
+  /* Map artwork is light — keep the fullscreen backdrop light in every theme */
+  background: #f9f9f9;
+}
+
+.cs-lightbox.is-image .cs-lightbox__iframe {
+  display: none;
+}
+
+.cs-lightbox__img {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  transform-origin: 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: grab;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+}
+
+.cs-lightbox.is-image .cs-lightbox__img {
+  display: block;
+}
+
+.cs-lightbox__img.is-grabbing {
+  cursor: grabbing;
+}
+
+.cs-lightbox__img.is-loaded {
   opacity: 1;
 }
 

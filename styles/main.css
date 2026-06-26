@@ -263,6 +263,18 @@ body {
   opacity: 1;
 }
 
+/* Pointer devices: hide the copy icon until hover. Touch devices: keep it visible. */
+@media (hover: hover) {
+  .header-email__icon--copy {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  .header-email:hover .header-email__icon--copy {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .header-email__icon--check {
   position: absolute;
   right: 0;
@@ -374,6 +386,24 @@ body {
 .header-location__city {
   font-weight: 500;
   color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.header-location__crest {
+  width: 0;
+  height: 16px;
+  opacity: 0;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
+
+.header-location:hover .header-location__city {
+  color: #EF0107;
+}
+
+.header-location:hover .header-location__crest {
+  width: 16px;
+  opacity: 1;
 }
 
 @keyframes blink {
@@ -576,6 +606,16 @@ body {
   object-fit: contain;
 }
 
+/* Logo that links out to the company site */
+.logo-link {
+  display: inline-flex;
+  transition: opacity 0.15s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.7;
+}
+
 #ee .project__logo { height: 48px; }
 
 [data-color-scheme='dark'] #ee .project__logo {
@@ -646,29 +686,50 @@ body {
   justify-content: flex-end;
 }
 
-/* Tag chip */
+/* Tag chip — shared minimal pill (keep in sync with .cs-tag) */
 .tag {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  padding: 0.2em 0.6em;
+  padding: 0.4em 0.85em;
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-text-subtle);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: 99px;
   white-space: nowrap;
 }
 
-/* TODO: replace with real icons per tag */
+/* Tag icon — Material Symbol rendered as a mask so it inherits the tag colour */
 .tag__icon {
   display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: var(--color-border-strong);
-  border-radius: 2px;
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  background-color: currentColor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
+
+/* Apple logo fills its whole viewBox — shrink it to match the Material icons' optical padding */
+.tag__icon--ios {
+  -webkit-mask-size: 80%;
+  mask-size: 80%;
+}
+
+.tag__icon--travel { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724px%27 viewBox=%270 -960 960 960%27 width=%2724px%27%3E%3Cpath d=%27M120-120v-80h720v80H120Zm70-200L40-570l96-26 112 94 140-37-207-276 116-31 299 251 170-46q32-9 60.5 7.5T864-585q9 32-7.5 60.5T808-487L190-320Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724px%27 viewBox=%270 -960 960 960%27 width=%2724px%27%3E%3Cpath d=%27M120-120v-80h720v80H120Zm70-200L40-570l96-26 112 94 140-37-207-276 116-31 299 251 170-46q32-9 60.5 7.5T864-585q9 32-7.5 60.5T808-487L190-320Z%27/%3E%3C/svg%3E"); }
+.tag__icon--web { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M320-120v-80h80v-80H160q-33 0-56.5-23.5T80-360v-400q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v400q0 33-23.5 56.5T800-280H560v80h80v80H320ZM160-360h640v-400H160v400Zm0 0v-400 400Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M320-120v-80h80v-80H160q-33 0-56.5-23.5T80-360v-400q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v400q0 33-23.5 56.5T800-280H560v80h80v80H320ZM160-360h640v-400H160v400Zm0 0v-400 400Z%27/%3E%3C/svg%3E"); }
+.tag__icon--mobile { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M720-80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80Zm-480-80h480v-640H240v640Zm0 0v-640 640Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M720-80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80Zm-480-80h480v-640H240v640Zm0 0v-640 640Z%27/%3E%3C/svg%3E"); }
+.tag__icon--ios { -webkit-mask-image: url("data:image/svg+xml,%3Csvg role=%27img%27 viewBox=%270 0 24 24%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg role=%27img%27 viewBox=%270 0 24 24%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701%27/%3E%3C/svg%3E"); }
+.tag__icon--android { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M40-240q9-107 65.5-197T256-580l-74-128q-6-9-3-19t13-15q8-5 18-2t16 12l74 128q86-36 180-36t180 36l74-128q6-9 16-12t18 2q10 5 13 15t-3 19l-74 128q94 53 150.5 143T920-240H40Zm240-110q21 0 35.5-14.5T330-400q0-21-14.5-35.5T280-450q-21 0-35.5 14.5T230-400q0 21 14.5 35.5T280-350Zm400 0q21 0 35.5-14.5T730-400q0-21-14.5-35.5T680-450q-21 0-35.5 14.5T630-400q0 21 14.5 35.5T680-350Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M40-240q9-107 65.5-197T256-580l-74-128q-6-9-3-19t13-15q8-5 18-2t16 12l74 128q86-36 180-36t180 36l74-128q6-9 16-12t18 2q10 5 13 15t-3 19l-74 128q94 53 150.5 143T920-240H40Zm240-110q21 0 35.5-14.5T330-400q0-21-14.5-35.5T280-450q-21 0-35.5 14.5T230-400q0 21 14.5 35.5T280-350Zm400 0q21 0 35.5-14.5T730-400q0-21-14.5-35.5T680-450q-21 0-35.5 14.5T630-400q0 21 14.5 35.5T680-350Z%27/%3E%3C/svg%3E"); }
+.tag__icon--b2b { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M80-120v-720h400v160h400v560H80Zm80-80h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M80-120v-720h400v160h400v560H80Zm80-80h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z%27/%3E%3C/svg%3E"); }
+.tag__icon--b2c { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M841-518v318q0 33-23.5 56.5T761-120H201q-33 0-56.5-23.5T121-200v-318q-23-21-35.5-54t-.5-72l42-136q8-26 28.5-43t47.5-17h556q27 0 47 16.5t29 43.5l42 136q12 39-.5 71T841-518Zm-272-42q27 0 41-18.5t11-41.5l-22-140h-78v148q0 21 14 36.5t34 15.5Zm-180 0q23 0 37.5-15.5T441-612v-148h-78l-22 140q-4 24 10.5 42t37.5 18Zm-178 0q18 0 31.5-13t16.5-33l22-154h-78l-40 134q-6 20 6.5 43t41.5 23Zm540 0q29 0 42-23t6-43l-42-134h-76l22 154q3 20 16.5 33t31.5 13ZM201-200h560v-282q-5 2-6.5 2H751q-27 0-47.5-9T663-518q-18 18-41 28t-49 10q-27 0-50.5-10T481-518q-17 18-39.5 28T393-480q-29 0-52.5-10T299-518q-21 21-41.5 29.5T211-480h-4.5q-2.5 0-5.5-2v282Zm560 0H201h560Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M841-518v318q0 33-23.5 56.5T761-120H201q-33 0-56.5-23.5T121-200v-318q-23-21-35.5-54t-.5-72l42-136q8-26 28.5-43t47.5-17h556q27 0 47 16.5t29 43.5l42 136q12 39-.5 71T841-518Zm-272-42q27 0 41-18.5t11-41.5l-22-140h-78v148q0 21 14 36.5t34 15.5Zm-180 0q23 0 37.5-15.5T441-612v-148h-78l-22 140q-4 24 10.5 42t37.5 18Zm-178 0q18 0 31.5-13t16.5-33l22-154h-78l-40 134q-6 20 6.5 43t41.5 23Zm540 0q29 0 42-23t6-43l-42-134h-76l22 154q3 20 16.5 33t31.5 13ZM201-200h560v-282q-5 2-6.5 2H751q-27 0-47.5-9T663-518q-18 18-41 28t-49 10q-27 0-50.5-10T481-518q-17 18-39.5 28T393-480q-29 0-52.5-10T299-518q-21 21-41.5 29.5T211-480h-4.5q-2.5 0-5.5-2v282Zm560 0H201h560Z%27/%3E%3C/svg%3E"); }
+.tag__icon--fintech { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z%27/%3E%3C/svg%3E"); }
+.tag__icon--telco { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M196-276q-57-60-86.5-133T80-560q0-78 29.5-151T196-844l48 48q-48 48-72 110.5T148-560q0 63 24 125.5T244-324l-48 48Zm96-96q-39-39-59.5-88T212-560q0-51 20.5-100t59.5-88l48 48q-30 27-45 64t-15 76q0 36 15 73t45 67l-48 48ZM280-80l135-405q-16-14-25.5-33t-9.5-42q0-42 29-71t71-29q42 0 71 29t29 71q0 23-9.5 42T545-485L680-80h-80l-26-80H387l-27 80h-80Zm133-160h134l-67-200-67 200Zm255-132-48-48q30-27 45-64t15-76q0-36-15-73t-45-67l48-48q39 39 58 88t22 100q0 51-20.5 100T668-372Zm96 96-48-48q48-48 72-110.5T812-560q0-63-24-125.5T716-796l48-48q57 60 86.5 133T880-560q0 78-28 151t-88 133Z%27/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2724%27 viewBox=%270 -960 960 960%27 width=%2724%27%3E%3Cpath d=%27M196-276q-57-60-86.5-133T80-560q0-78 29.5-151T196-844l48 48q-48 48-72 110.5T148-560q0 63 24 125.5T244-324l-48 48Zm96-96q-39-39-59.5-88T212-560q0-51 20.5-100t59.5-88l48 48q-30 27-45 64t-15 76q0 36 15 73t45 67l-48 48ZM280-80l135-405q-16-14-25.5-33t-9.5-42q0-42 29-71t71-29q42 0 71 29t29 71q0 23-9.5 42T545-485L680-80h-80l-26-80H387l-27 80h-80Zm133-160h134l-67-200-67 200Zm255-132-48-48q30-27 45-64t15-76q0-36-15-73t-45-67l48-48q39 39 58 88t22 100q0 51-20.5 100T668-372Zm96 96-48-48q48-48 72-110.5T812-560q0-63-24-125.5T716-796l48-48q57 60 86.5 133T880-560q0 78-28 151t-88 133Z%27/%3E%3C/svg%3E"); }
 
 /* Screenshots */
 .project__screenshots {
@@ -809,9 +870,26 @@ body {
 .project__link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
   font-size: 0.875rem;
-  color: var(--color-link);
+  color: var(--color-text-subtle);
+  transition: color 0.2s ease;
+}
+
+.project__link:hover {
+  color: var(--color-text);
+}
+
+.project__link-arrow {
+  display: inline-flex;
+  opacity: 0;
+  transform: translate(-4px, 3px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project__link:hover .project__link-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .project__link:hover {
@@ -903,9 +981,9 @@ body {
 
 .about__body {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--space-8);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-7);
 }
 
 .about__text {
@@ -916,31 +994,38 @@ body {
   font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--color-text-subtle);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .about__links {
   display: flex;
-  gap: var(--space-4);
+  align-items: center;
+  gap: var(--space-5);
 }
 
-.about__links a {
-  font-size: 0.875rem;
-  color: var(--color-link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Match LinkedIn to the email button colour */
+.about__links .project__link {
+  color: var(--color-text-muted);
 }
 
-.about__links a:hover {
-  color: var(--color-accent-hover);
+.about__links .project__link:hover {
+  color: var(--color-text);
+}
+
+/* Polaroid frame */
+.about__avatar {
+  background: #fff;
+  padding: 14px 14px 44px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: rotate(-3deg);
 }
 
 .about__avatar img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  display: block;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  background: var(--color-surface);
 }
 
 
@@ -955,9 +1040,30 @@ body {
   padding: var(--space-6) var(--page-gutter);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   font-size: 0.8125rem;
   color: var(--color-text-muted);
+}
+
+.site-footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.site-footer__top {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 768px) {
+  .site-footer__top {
+    display: flex;
+  }
 }
 
 .site-footer::before {
@@ -990,7 +1096,8 @@ body {
 }
 
 .site-footer__built-with.is-visible .site-footer__claude-icon {
-  animation: claude-wave 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: claude-wave 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+             claude-wave 0.8s cubic-bezier(0.16, 1, 0.3, 1) 4s infinite;
 }
 
 .site-footer__commit {
@@ -1044,9 +1151,19 @@ body {
     gap: 24px;
   }
 
+  .bento__desktop {
+    width: 100%;
+    flex: none;
+  }
+
   .bento__phone {
     width: 60%;
     align-self: center;
+  }
+
+  /* Override the desktop #ferriswheel 24% so it matches other phones on mobile */
+  #ferriswheel .bento__phone {
+    width: 60%;
   }
 
   .bento-pair {
@@ -1054,19 +1171,28 @@ body {
   }
 
   .bento--phones {
+    flex-direction: column;
     padding: 24px;
-    gap: 16px;
+    gap: 24px;
+  }
+
+  .bento--phones img {
+    flex: none;
+    width: 100%;
+    max-width: 220px;
   }
 
   .bento--cards {
     width: 100%;
-    flex-direction: row;
     padding: 24px;
   }
 
-  .bento--cards img {
-    flex: 1;
-    min-width: 0;
+  .bento--full {
+    height: auto;
+  }
+
+  .bento--full img {
+    height: auto;
   }
 
   .testimonials__grid {
@@ -1075,12 +1201,13 @@ body {
   }
 
   .about__body {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-5);
   }
 
   .about__avatar img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 }

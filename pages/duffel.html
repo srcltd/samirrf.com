@@ -22,6 +22,7 @@
     <div class="header-right">
       <span class="header-location">
         <span class="header-location__city">LDN</span>
+        <img class="header-location__crest" src="../assets/img/arsenal.svg" alt="" width="16" height="16">
         <span class="header-location__time" id="headerTime"></span>
       </span>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
@@ -35,16 +36,18 @@
     <!-- 1. Header -->
     <div class="cs-section cs-header-section cs-narrow reveal">
       <div class="cs-header">
-        <img class="cs-header__logo cs-header__logo--dark" src="../assets/img/Duffel Logo - Icon.svg" alt="Duffel">
-        <img class="cs-header__logo cs-header__logo--light" src="../assets/img/Duffel Logo - Icon Light.svg" alt="Duffel">
+        <a class="logo-link" href="https://www.duffel.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Duffel (opens in a new tab)">
+          <img class="cs-header__logo cs-header__logo--dark" src="../assets/img/Duffel Logo - Icon.svg" alt="Duffel">
+          <img class="cs-header__logo cs-header__logo--light" src="../assets/img/Duffel Logo - Icon Light.svg" alt="Duffel">
+        </a>
         <p class="cs-header__eyebrow">2023 - Present</p>
         <h1 class="cs-header__title">Building the foundation for AI-powered<br class="cs-br-desktop"> travel support</h1>
         <p class="cs-header__subtitle">Duffel is a YC-backed travel startup powering products for Ramp, Robinhood and Bilt. As the only product designer at the company, I worked directly with the CEO and product lead to design the support system from the ground up - from mapping the service blueprint through to the AI-powered tools the team is building toward today.</p>
         <ul class="cs-header__tags">
-          <li class="cs-tag">B2B</li>
-          <li class="cs-tag">Travel</li>
-          <li class="cs-tag">Web</li>
-          <li class="cs-tag">Mobile</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--b2b" aria-hidden="true"></span>B2B</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--travel" aria-hidden="true"></span>Travel</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--web" aria-hidden="true"></span>Web</li>
+          <li class="cs-tag"><span class="tag__icon tag__icon--mobile" aria-hidden="true"></span>Mobile</li>
         </ul>
       </div>
     </div>
@@ -245,8 +248,9 @@
         setInterval(updateTime, 30000);
 
         // Last commit ticker
-        var LAST_COMMIT = 1781864218000;
+        var LAST_COMMIT = null;
         function updateCommitAgo() {
+          if (!LAST_COMMIT) return;
           var diff = Math.floor((Date.now() - LAST_COMMIT) / 1000);
           var text;
           if (diff < 60) text = diff + 's ago';
@@ -255,8 +259,16 @@
           else text = Math.floor(diff / 86400) + 'd ago';
           document.getElementById('commitAgo').textContent = text;
         }
-        updateCommitAgo();
-        setInterval(updateCommitAgo, 1000);
+        fetch('https://api.github.com/repos/srcltd/samirrf.com/commits?per_page=1')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data[0] && data[0].commit) {
+              LAST_COMMIT = new Date(data[0].commit.committer.date).getTime();
+              updateCommitAgo();
+              setInterval(updateCommitAgo, 1000);
+            }
+          })
+          .catch(function () {});
 
         // Copy email
         document.getElementById('copyEmail').addEventListener('click', function () {
@@ -408,6 +420,60 @@
             observer.observe(el);
           }
         });
+
+        // Footer icon animation
+        var footerBuilt = document.querySelector('.site-footer__built-with');
+        if (footerBuilt) {
+          var footerObs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+              footerBuilt.classList.add('is-visible');
+              footerObs.unobserve(footerBuilt);
+            }
+          }, { threshold: 0.5 });
+          footerObs.observe(footerBuilt);
+        }
+
+        // Matrix easter egg
+        var claudeIcon = document.querySelector('.site-footer__claude-icon');
+        if (claudeIcon) {
+          claudeIcon.style.cursor = 'pointer';
+          claudeIcon.addEventListener('mouseenter', function () {
+            var overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;pointer-events:all;cursor:pointer;background:rgba(0,0,0,0.95);overflow:hidden;';
+            document.body.appendChild(overlay);
+            var cols = Math.ceil(window.innerWidth / 28);
+            var src = claudeIcon.src;
+            for (var c = 0; c < cols; c++) {
+              (function (col) {
+                var count = 8 + Math.floor(Math.random() * 12);
+                for (var i = 0; i < count; i++) {
+                  var img = document.createElement('img');
+                  img.src = src;
+                  var size = 12 + Math.floor(Math.random() * 24);
+                  img.style.cssText = 'position:absolute;width:' + size + 'px;height:' + size + 'px;opacity:0;left:' + (col * 28 + 5) + 'px;top:-' + size + 'px;';
+                  var delay = Math.random() * 3000 + i * 200;
+                  var dur = 800 + Math.random() * 3500;
+                  overlay.appendChild(img);
+                  setTimeout(function (el, d) {
+                    el.style.transition = 'top ' + d + 'ms linear, opacity 0.3s';
+                    el.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+                    el.style.top = (window.innerHeight + 20) + 'px';
+                  }, delay, img, dur);
+                }
+              })(c);
+            }
+            setTimeout(function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            }, 5000);
+            overlay.addEventListener('click', function () {
+              overlay.style.transition = 'opacity 0.5s';
+              overlay.style.opacity = '0';
+              setTimeout(function () { overlay.remove(); }, 500);
+            });
+          });
+        }
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
