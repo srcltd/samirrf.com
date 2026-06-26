@@ -1026,4 +1026,12 @@
   .cs-two-col {
     grid-template-columns: 1fr;
   }
+
+  /* Tighter gutters + padding on mobile so embeds/screens get more width */
+  .cs-bento {
+    width: calc(100vw - 24px);
+    margin-left: calc(-50vw + 50% + 12px);
+    padding: var(--space-3);
+    border-radius: 12px;
+  }
 }
