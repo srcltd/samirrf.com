@@ -406,6 +406,16 @@ body {
   opacity: 1;
 }
 
+/* Gooner peek (hovering/tapping SAMIR) turns LDN red too — only the gooner peek */
+body.is-gooner-peek .header-location__city {
+  color: #EF0107;
+}
+
+body.is-gooner-peek .header-location__crest {
+  width: 16px;
+  opacity: 1;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -1155,6 +1165,15 @@ body {
   .project__meta {
     flex-direction: column;
     gap: var(--space-4);
+  }
+
+  /* Left-align tags on mobile (they stack below the description) */
+  .project__meta-right {
+    align-items: flex-start;
+  }
+
+  .project__tags {
+    justify-content: flex-start;
   }
 
   .bento--hero-row {

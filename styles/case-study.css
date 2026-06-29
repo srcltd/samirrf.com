@@ -380,6 +380,7 @@
 /* Static image artefact inside a bento (screenshots, no lightbox) */
 .cs-bento img {
   display: block;
+  width: 100%;
   max-width: min(1050px, 100%);
   height: auto;
   margin-inline: auto;
@@ -390,7 +391,7 @@
   display: block;
   width: 100%;
   max-width: 1400px;
-  height: 800px;
+  height: 1100px;
   margin-inline: auto;
   border: none;
   border-radius: 8px;

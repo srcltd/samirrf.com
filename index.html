@@ -304,14 +304,18 @@
           });
         });
 
-        // Peek hover — swap title text
+        // Gooner peek — swap title text, show photo, turn LDN red (hover on desktop, tap on mobile)
         var samirEl = document.getElementById('samirHover');
         var heroSection = document.querySelector('.hero');
-        samirEl.addEventListener('mouseenter', function () {
-          heroSection.classList.add('hero--peek-active');
-        });
-        samirEl.addEventListener('mouseleave', function () {
-          heroSection.classList.remove('hero--peek-active');
+        function setGoonerPeek(on) {
+          heroSection.classList.toggle('hero--peek-active', on);
+          document.body.classList.toggle('is-gooner-peek', on);
+        }
+        samirEl.addEventListener('mouseenter', function () { setGoonerPeek(true); });
+        samirEl.addEventListener('mouseleave', function () { setGoonerPeek(false); });
+        samirEl.addEventListener('click', function (e) {
+          e.preventDefault();
+          setGoonerPeek(!heroSection.classList.contains('hero--peek-active'));
         });
 
         // Scroll reveal with staggered load
