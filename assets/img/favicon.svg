@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1031 1031">
+<style>
+  path { fill: #1c1c1e; }
+  @media (prefers-color-scheme: dark) { path { fill: #ffffff; } }
+</style>
+<path transform="translate(200.5 865.5) scale(1 -1)" d="M287 -8H342C499 -8 601 78 601 210C601 491 210 390 210 507C210 541 240 562 279 562H334C379 562 406 535 413 496H580C570 630 460 708 335 708H280C149 708 38 621 38 496C38 222 429 308 429 200C429 161 392 138 350 138H294C237 138 205 171 198 218H29C36 85 141 -8 287 -8Z"/>
+</svg>

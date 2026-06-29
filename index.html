@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samir</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -304,18 +307,41 @@
           });
         });
 
-        // Gooner peek — swap title text, show photo, turn LDN red (hover on desktop, tap on mobile)
+        // Persona peek — cycle through photos + captions on each hover (desktop only)
         var samirEl = document.getElementById('samirHover');
         var heroSection = document.querySelector('.hero');
-        function setGoonerPeek(on) {
-          heroSection.classList.toggle('hero--peek-active', on);
-          document.body.classList.toggle('is-gooner-peek', on);
+        var peekImg = document.getElementById('peekImg');
+        var peekTitle = document.querySelector('.hero__title-hover');
+
+        var personas = [
+          { src: 'assets/img/peek-girl-dad.png',          caption: 'Girl dad' },
+          { src: 'assets/img/peek-dog-dad.png',           caption: 'Dog dad' },
+          { src: 'assets/img/image 6.png',                caption: 'Gooner', gooner: true },
+          { src: 'assets/img/peek-real-cowboy.png',       caption: 'Cowboy' },
+          { src: 'assets/img/peek-family-guy.png',        caption: 'Family guy' },
+          { src: 'assets/img/peek-man-of-leisure.png',    caption: 'Man of leisure' },
+          { src: 'assets/img/peek-intrepid-explorer.png', caption: 'Intrepid explorer' }
+        ];
+        personas.forEach(function (p) { var i = new Image(); i.src = p.src; }); // preload
+        var personaIdx = 0;
+
+        function showPeek() {
+          var p = personas[personaIdx];
+          peekImg.src = p.src;
+          peekTitle.textContent = p.caption;
+          heroSection.classList.add('hero--peek-active');
+          document.body.classList.toggle('is-gooner-peek', !!p.gooner);
+          personaIdx = (personaIdx + 1) % personas.length;
+        }
+        function hidePeek() {
+          heroSection.classList.remove('hero--peek-active');
+          document.body.classList.remove('is-gooner-peek');
         }
         // Desktop hover only — disabled on touch so it can't stick on mobile
         var goonerTouched = false;
         samirEl.addEventListener('touchstart', function () { goonerTouched = true; }, { passive: true });
-        samirEl.addEventListener('mouseenter', function () { if (!goonerTouched) setGoonerPeek(true); });
-        samirEl.addEventListener('mouseleave', function () { if (!goonerTouched) setGoonerPeek(false); });
+        samirEl.addEventListener('mouseenter', function () { if (!goonerTouched) showPeek(); });
+        samirEl.addEventListener('mouseleave', function () { if (!goonerTouched) hidePeek(); });
 
         // Scroll reveal with staggered load
         var reveals = document.querySelectorAll('.reveal');
