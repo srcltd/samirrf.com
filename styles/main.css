@@ -505,6 +505,8 @@ body.is-gooner-peek .header-location__crest {
 .hero__name-ar {
   direction: rtl;
   font-size: clamp(2rem, 6vw, 64px);
+  /* Pin the Arabic font so Safari matches Chrome (Denim has no Arabic glyphs) */
+  font-family: "Geeza Pro", system-ui, sans-serif;
 }
 
 /* Peek image on SAMIR hover */
