@@ -517,7 +517,7 @@ body.is-gooner-peek .header-location__crest {
   transition: opacity var(--peek-duration, 0.4s) cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero__name-en:hover .hero__name-text {
+.hero--peek-active .hero__name-text {
   opacity: 0;
 }
 
@@ -546,7 +546,7 @@ body.is-gooner-peek .header-location__crest {
   -webkit-mask-composite: source-in;
 }
 
-.hero__name-en:hover .hero__peek {
+.hero--peek-active .hero__peek {
   opacity: 1;
   transform: translateY(0);
 }

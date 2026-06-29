@@ -311,12 +311,17 @@
           heroSection.classList.toggle('hero--peek-active', on);
           document.body.classList.toggle('is-gooner-peek', on);
         }
-        samirEl.addEventListener('mouseenter', function () { setGoonerPeek(true); });
-        samirEl.addEventListener('mouseleave', function () { setGoonerPeek(false); });
-        samirEl.addEventListener('click', function (e) {
-          e.preventDefault();
-          setGoonerPeek(!heroSection.classList.contains('hero--peek-active'));
-        });
+        if (window.matchMedia('(hover: hover)').matches) {
+          // Pointer devices: hover
+          samirEl.addEventListener('mouseenter', function () { setGoonerPeek(true); });
+          samirEl.addEventListener('mouseleave', function () { setGoonerPeek(false); });
+        } else {
+          // Touch devices: tap to toggle
+          samirEl.addEventListener('click', function (e) {
+            e.preventDefault();
+            setGoonerPeek(!heroSection.classList.contains('hero--peek-active'));
+          });
+        }
 
         // Scroll reveal with staggered load
         var reveals = document.querySelectorAll('.reveal');
