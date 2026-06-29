@@ -540,6 +540,13 @@ body.is-gooner-peek .header-location__crest {
   object-fit: cover;
 }
 
+/* Man of leisure: sit on the divider line instead of peeking from the name */
+.hero__peek--on-divider {
+  top: auto;
+  bottom: -80px;
+  translate: 0;
+}
+
 .hero--peek-active .hero__peek {
   opacity: 1;
   transform: translateY(0);
