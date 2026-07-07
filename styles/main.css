@@ -263,17 +263,7 @@ body {
   opacity: 1;
 }
 
-/* Pointer devices: hide the copy icon until hover. Touch devices: keep it visible. */
-@media (hover: hover) {
-  .header-email__icon--copy {
-    opacity: 0;
-    transform: translateX(-4px);
-  }
-  .header-email:hover .header-email__icon--copy {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+/* Copy icon always visible (0.5 opacity, brightens to full on hover). */
 
 .header-email__icon--check {
   position: absolute;
@@ -1164,6 +1154,16 @@ body.is-gooner-peek .header-location__crest {
 @media (max-width: 768px) {
   :root {
     --page-gutter: var(--space-5);
+  }
+
+  /* Case-study header: left-align the email beside the back arrow,
+     keeping a comfortable tap gap between the two targets. */
+  .header-back {
+    flex: none;
+  }
+  .header-back + .header-email {
+    margin-left: var(--space-5);
+    margin-right: auto;
   }
 
   .project__meta {
