@@ -1168,16 +1168,40 @@ body.is-gooner-peek .header-location__crest {
 
   .project__meta {
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-7);
   }
 
-  /* Left-align tags on mobile (they stack below the description) */
+  /* More air between the description and the case study link */
+  .project__meta-left {
+    gap: var(--space-5);
+  }
+
+  /* Left-align tags on mobile (they stack below the description), and let the
+     row fill the column so it can scroll rather than wrap. */
   .project__meta-right {
     align-items: flex-start;
+    align-self: stretch;
   }
 
+  /* Tags stay on a single line — shrunk to fit rather than wrapping.
+     overflow-x is a safety valve if a project ever gains another tag. */
   .project__tags {
     justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: var(--space-1);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .project__tags::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tag {
+    font-size: 0.6875rem;
+    padding: 0.35em 0.6em;
+    gap: 0.2em;
   }
 
   .bento--hero-row {

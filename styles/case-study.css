@@ -191,6 +191,22 @@
   gap: var(--space-2);
 }
 
+/* On mobile the tags stay on a single line, shrunk to fit rather than wrapping
+   onto a second row (matches the homepage .project__tags). */
+@media (max-width: 768px) {
+  .cs-header__tags {
+    flex-wrap: nowrap;
+    gap: var(--space-1);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cs-header__tags::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Minimal pill — matches homepage .tag */
 .cs-tag {
   display: inline-flex;
@@ -1002,6 +1018,14 @@
    ============================================================ */
 
 @media (max-width: 768px) {
+  /* Shrink the header tags so all of them fit on one line (see the nowrap
+     rule alongside .cs-header__tags). Must sit after the .cs-tag base rule. */
+  .cs-tag {
+    font-size: 0.6875rem;
+    padding: 0.35em 0.6em;
+    gap: 0.2em;
+  }
+
   .cs-hero-block__grid {
     grid-template-columns: 1fr;
   }
