@@ -196,6 +196,7 @@
 @media (max-width: 768px) {
   .cs-header__tags {
     flex-wrap: nowrap;
+    justify-content: space-between;
     gap: var(--space-1);
     overflow-x: auto;
     scrollbar-width: none;
@@ -1018,12 +1019,19 @@
    ============================================================ */
 
 @media (max-width: 768px) {
-  /* Shrink the header tags so all of them fit on one line (see the nowrap
-     rule alongside .cs-header__tags). Must sit after the .cs-tag base rule. */
+  /* Chips grow with the viewport so they're always as large as will fit on one
+     line (see the nowrap rule alongside .cs-header__tags). Must sit after the
+     .cs-tag base rule or equal specificity lets the base win. */
   .cs-tag {
-    font-size: 0.6875rem;
+    font-size: clamp(0.6875rem, 3.72vw - 2.38px, 0.875rem);
     padding: 0.35em 0.6em;
     gap: 0.2em;
+  }
+
+  /* Stat cards stack rather than splitting the column two ways, which left
+     each card ~95px of usable width and wrapped every label onto three lines. */
+  .cs-stat-row {
+    flex-direction: column;
   }
 
   .cs-hero-block__grid {

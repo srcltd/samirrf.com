@@ -1168,7 +1168,7 @@ body.is-gooner-peek .header-location__crest {
 
   .project__meta {
     flex-direction: column;
-    gap: var(--space-7);
+    gap: var(--space-5);
   }
 
   /* More air between the description and the case study link */
@@ -1183,10 +1183,10 @@ body.is-gooner-peek .header-location__crest {
     align-self: stretch;
   }
 
-  /* Tags stay on a single line — shrunk to fit rather than wrapping.
-     overflow-x is a safety valve if a project ever gains another tag. */
+  /* Tags stay on a single line and span the full column, so the row's edges
+     line up with the bento below it. overflow-x is a safety valve only. */
   .project__tags {
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: nowrap;
     gap: var(--space-1);
     overflow-x: auto;
@@ -1198,8 +1198,11 @@ body.is-gooner-peek .header-location__crest {
     display: none;
   }
 
+  /* Chips grow with the viewport so they're always as large as will fit on one
+     line. Tuned against the widest set (5 chips, "Mobile App"/"Android"), which
+     fills the column exactly; narrower sets get wider gaps at the same size. */
   .tag {
-    font-size: 0.6875rem;
+    font-size: clamp(0.6875rem, 3.72vw - 2.38px, 0.875rem);
     padding: 0.35em 0.6em;
     gap: 0.2em;
   }
